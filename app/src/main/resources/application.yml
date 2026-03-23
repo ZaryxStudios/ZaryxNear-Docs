@@ -1,0 +1,15 @@
+spring:
+  main:
+    web-application-type: none
+
+  threads:
+    virtual:
+      enabled: true
+
+  grpc:
+    server:
+      port: 9093
+      max-inbound-message-size: 52428800
+
+anthropic:
+  api-key: ${ANTHROPIC_API_KEY}

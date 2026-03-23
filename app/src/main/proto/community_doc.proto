@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package zaryxnear.docs.community;
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "me.serbob.zaryxnear.ai.context.docs.community.config";
+option java_outer_classname = "DocProto";
+
+service Doc {
+  rpc GetDocInformation(DocRequestProto) returns (DocResponseProto) {}
+  rpc GetCategoryTree(google.protobuf.Empty) returns (CategoryTreeResponse) {}
+}
+
+message DocResponseProto {
+  string content = 1;
+  int64 tokens = 2;
+}
+
+message DocRequestProto {
+  string category = 1;
+  string subcategory = 2;
+  string docId = 3;
+}
+
+message CategoryTreeResponse {
+  map<string, DocList> category_tree = 1;
+}
+
+message DocList {
+  repeated string doc_id = 1;
+}
