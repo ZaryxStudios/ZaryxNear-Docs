@@ -14,7 +14,7 @@ RUN chmod +x ./mvnw
 
 RUN ./mvnw -pl app,autogen -am -DskipTests clean package
 
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:25-jre
 WORKDIR /app
 
 RUN groupadd -g 1001 appuser && useradd -u 1001 -g appuser appuser
