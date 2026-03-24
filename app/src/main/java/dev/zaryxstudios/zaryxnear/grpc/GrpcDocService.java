@@ -1,15 +1,15 @@
-package me.serbob.zaryxnear.grpc;
+package dev.zaryxstudios.zaryxnear.grpc;
 
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
-import me.serbob.zaryxnear.ai.context.docs.community.config.CategoryTreeResponse;
-import me.serbob.zaryxnear.ai.context.docs.community.config.DocGrpc;
-import me.serbob.zaryxnear.ai.context.docs.community.config.DocRequestProto;
-import me.serbob.zaryxnear.ai.context.docs.community.config.DocResponseProto;
-import me.serbob.zaryxnear.dto.DocResponse;
-import me.serbob.zaryxnear.proto.*;
-import me.serbob.zaryxnear.service.DocsService;
+import dev.zaryxstudios.zaryxnear.ai.context.docs.community.config.CategoryTreeResponse;
+import dev.zaryxstudios.zaryxnear.ai.context.docs.community.config.DocGrpc;
+import dev.zaryxstudios.zaryxnear.ai.context.docs.community.config.DocRequestProto;
+import dev.zaryxstudios.zaryxnear.ai.context.docs.community.config.DocResponseProto;
+import dev.zaryxstudios.zaryxnear.dto.DocResponse;
+import dev.zaryxstudios.zaryxnear.proto.*;
+import dev.zaryxstudios.zaryxnear.service.DocsService;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,4 +1,4 @@
-package me.serbob.zaryxnear.dto;
+package dev.zaryxstudios.zaryxnear.dto;
 
 public record DocResponse(
         String content,

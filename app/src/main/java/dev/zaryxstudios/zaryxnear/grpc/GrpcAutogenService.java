@@ -1,11 +1,11 @@
-package me.serbob.zaryxnear.grpc;
+package dev.zaryxstudios.zaryxnear.grpc;
 
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.serbob.zaryxnear.autogen.apiDocGenerator;
-import me.serbob.zaryxnear.autogen.ScanMode;
-import me.serbob.zaryxnear.proto.*;
+import dev.zaryxstudios.zaryxnear.autogen.apiDocGenerator;
+import dev.zaryxstudios.zaryxnear.autogen.ScanMode;
+import dev.zaryxstudios.zaryxnear.proto.*;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.Files;

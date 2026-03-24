@@ -1,4 +1,4 @@
-package me.serbob.zaryxnear.autogen;
+package dev.zaryxstudios.zaryxnear.autogen;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -43,8 +43,8 @@ public class DocGeneratorCLI {
         if (mode.equalsIgnoreCase("package") || mode.equals("2")) {
             if (packagePath == null || packagePath.trim().isEmpty()) {
                 System.err.println("Error: Package path is required for package-specific scan!");
-                System.err.println("Usage: ./mvnw -pl autogen -am exec:java -Dexec.mainClass=me.serbob.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"package me.serbob.zaryxnear.autogen.api\"");
-                System.err.println("   or: ./mvnw -pl autogen -am exec:java -Dexec.mainClass=me.serbob.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"package me.serbob.zaryxnear.autogen.api\"");
+                System.err.println("Usage: ./mvnw -pl autogen -am exec:java -Dexec.mainClass=dev.zaryxstudios.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"package dev.zaryxstudios.zaryxnear.autogen.api\"");
+                System.err.println("   or: ./mvnw -pl autogen -am exec:java -Dexec.mainClass=dev.zaryxstudios.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"package dev.zaryxstudios.zaryxnear.autogen.api\"");
                 return;
             }
 
@@ -95,14 +95,14 @@ public class DocGeneratorCLI {
         if (args.length == 0 && System.getProperty("scan.mode") == null) {
             System.out.println("\n--- Usage Info ---");
             System.out.println("For full JAR scan:");
-            System.out.println("  ./mvnw -pl autogen -am exec:java -Dexec.mainClass=me.serbob.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"full\"");
+            System.out.println("  ./mvnw -pl autogen -am exec:java -Dexec.mainClass=dev.zaryxstudios.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"full\"");
             System.out.println("");
             System.out.println("For package-specific scan:");
-            System.out.println("  ./mvnw -pl autogen -am exec:java -Dexec.mainClass=me.serbob.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"package me.serbob.zaryxnear.autogen.api\"");
+            System.out.println("  ./mvnw -pl autogen -am exec:java -Dexec.mainClass=dev.zaryxstudios.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"package dev.zaryxstudios.zaryxnear.autogen.api\"");
             System.out.println("");
             System.out.println("Using system properties:");
-            System.out.println("  ./mvnw -pl autogen -am exec:java -Dexec.mainClass=me.serbob.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"full\"");
-            System.out.println("  ./mvnw -pl autogen -am exec:java -Dexec.mainClass=me.serbob.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"package me.serbob.zaryxnear.autogen.api\"");
+            System.out.println("  ./mvnw -pl autogen -am exec:java -Dexec.mainClass=dev.zaryxstudios.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"full\"");
+            System.out.println("  ./mvnw -pl autogen -am exec:java -Dexec.mainClass=dev.zaryxstudios.zaryxnear.autogen.DocGeneratorCLI -Dexec.args=\"package dev.zaryxstudios.zaryxnear.autogen.api\"");
         }
     }
 }

@@ -1,7 +1,7 @@
 # ModernHome-API-Complete-Documentation
 
 **Plugin:** ModernHome
-**Package:** me.serbob.commons.api
+**Package:** dev.zaryxstudios.commons.api
 
 ## Plugin Setup
 
@@ -22,7 +22,7 @@ if(ModernHome = Bukkit.getPluginManager().getPlugin("ModernHome") != null && Mod
 
 ### Access the API
 ```java
-import me.serbob.commons.api.ModernHomeAPI;
+import dev.zaryxstudios.commons.api.ModernHomeAPI;
 
 ModernHomeAPI api = ModernHomeAPI.getInstance();
 ```
@@ -294,7 +294,7 @@ public class AdminHomeManager {
 ## API Components Documentation
 
 ### ModernHomeAPI Class
-Package: me.serbob.commons.api.ModernHomeAPI
+Package: dev.zaryxstudios.commons.api.ModernHomeAPI
 Type: Class (Singleton)
 
 Methods:
@@ -315,7 +315,7 @@ Methods:
 - boolean deleteHome(UUID uuid, int index) - Delete home by index for UUID
 
 ### HomeData Class
-Package: me.serbob.commons.api.util.HomeData
+Package: dev.zaryxstudios.commons.api.util.HomeData
 Type: Class
 
 Constructor:
@@ -334,7 +334,7 @@ Methods:
 - void setServerId(String serverId) - Set server ID
 
 ### ImaginaryLocation Class
-Package: me.serbob.commons.api.util.ImaginaryLocation
+Package: dev.zaryxstudios.commons.api.util.ImaginaryLocation
 Type: Class
 
 Constructors:

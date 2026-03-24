@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.serbob</groupId>
+    <groupId>dev.zaryxstudios</groupId>
     <artifactId>zaryxnear-docs</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -15,6 +15,7 @@
         <grpc.version>1.66.0</grpc.version>
         <protobuf.version>3.23.4</protobuf.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <os.detected.classifier>windows-x86_64</os.detected.classifier>
     </properties>
 
     <modules>

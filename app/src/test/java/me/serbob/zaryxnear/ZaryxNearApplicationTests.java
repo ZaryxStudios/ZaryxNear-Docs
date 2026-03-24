@@ -1,5 +1,5 @@
 /*
-package me.serbob.zaryxnear;
+package dev.zaryxstudios.zaryxnear;
 
 
 @SpringBootTest

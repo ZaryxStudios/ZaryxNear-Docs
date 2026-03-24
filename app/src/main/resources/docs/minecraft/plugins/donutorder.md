@@ -1,8 +1,8 @@
 # donutorder-api API Reference
 
-## Package: me.serbob.donutorder.api.currency
+## Package: dev.zaryxstudios.donutorder.api.currency
 
-### Class: me.serbob.donutorder.api.currency.CurrencyHook
+### Class: dev.zaryxstudios.donutorder.api.currency.CurrencyHook
 Type: Interface
 Description: Interface for integrating different economy/currency plugins with DonutOrder
 
@@ -13,7 +13,7 @@ Methods:
 - void withdraw(OfflinePlayer player, double amount) - Remove amount from player's balance
 - void deposit(OfflinePlayer player, double amount) - Add amount to player's balance
 
-### Class: me.serbob.donutorder.api.currency.CurrencyManager
+### Class: dev.zaryxstudios.donutorder.api.currency.CurrencyManager
 Type: Class
 Description: Singleton manager for handling currency plugin integrations. Uses lazy initialization pattern for thread-safe singleton implementation.
 
@@ -27,9 +27,9 @@ Methods:
 - void deposit(OfflinePlayer player, double amount) - Add amount to player's balance. Does nothing if no currency active
 - CurrencyHook getActiveCurrency() - Get currently active currency or null if none
 
-## Package: me.serbob.donutorder.api.event
+## Package: dev.zaryxstudios.donutorder.api.event
 
-### Class: me.serbob.donutorder.api.event.CurrencyRegistrationCompleteEvent
+### Class: dev.zaryxstudios.donutorder.api.event.CurrencyRegistrationCompleteEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Description: Event fired when all currency hooks have been registered and an active currency has been selected
@@ -41,7 +41,7 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-### Class: me.serbob.donutorder.api.event.OrderExpirationEvent
+### Class: dev.zaryxstudios.donutorder.api.event.OrderExpirationEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Description: Event fired when an order expires. Orders expire after their duration has passed and can then be deleted after the deletion threshold period.
@@ -52,7 +52,7 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-### Class: me.serbob.donutorder.api.event.PlayerOrderDeliveryCompleteEvent
+### Class: dev.zaryxstudios.donutorder.api.event.PlayerOrderDeliveryCompleteEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Description: Event fired when a player completes delivering items for an order
@@ -64,7 +64,7 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-### Class: me.serbob.donutorder.api.event.PlayerOrderItemEvent
+### Class: dev.zaryxstudios.donutorder.api.event.PlayerOrderItemEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Implements: org.bukkit.event.Cancellable
@@ -79,7 +79,7 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-### Class: me.serbob.donutorder.api.event.PlayerQueryItemEvent
+### Class: dev.zaryxstudios.donutorder.api.event.PlayerQueryItemEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Description: Event fired when a player queries for items. Other plugins can add items to the query results through this event.
@@ -92,7 +92,7 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-### Class: me.serbob.donutorder.api.event.PlayerQueryItemEvent.QueryItemList
+### Class: dev.zaryxstudios.donutorder.api.event.PlayerQueryItemEvent.QueryItemList
 Type: Class
 Description: Container for items that match a player's query
 
@@ -100,7 +100,7 @@ Methods:
 - void addItem(ItemStack item) - Add an item to the query results
 - List<ItemStack> getItems() - Get all items in the query results
 
-### Class: me.serbob.donutorder.api.event.ShopRegistrationCompleteEvent
+### Class: dev.zaryxstudios.donutorder.api.event.ShopRegistrationCompleteEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Description: Event fired when all shop hooks have been registered and an active shop has been selected
@@ -112,9 +112,9 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-## Package: me.serbob.donutorder.api.shop
+## Package: dev.zaryxstudios.donutorder.api.shop
 
-### Class: me.serbob.donutorder.api.shop.OrderItem
+### Class: dev.zaryxstudios.donutorder.api.shop.OrderItem
 Type: Class
 Description: Represents an item in an order with its associated sell price
 
@@ -123,7 +123,7 @@ Methods:
 - ItemStack getItem() - Get the item (@Getter)
 - double getSellPrice() - Get the sell price of the item (@Getter)
 
-### Class: me.serbob.donutorder.api.shop.ShopHook
+### Class: dev.zaryxstudios.donutorder.api.shop.ShopHook
 Type: Interface
 Description: Interface for integrating different shop plugins with DonutOrder for price retrieval
 
@@ -132,7 +132,7 @@ Methods:
 - void init() - Initialize the shop hook
 - double getSellPrice(ItemStack itemStack) - Get sell price for a specific item. Returns -1 if not found
 
-### Class: me.serbob.donutorder.api.shop.ShopManager
+### Class: dev.zaryxstudios.donutorder.api.shop.ShopManager
 Type: Class
 Description: Singleton manager for handling shop plugin integrations and price synchronization
 
@@ -144,9 +144,9 @@ Methods:
 - ShopHook getActiveShop() - Get currently active shop or null if none
 - void syncPrices() - Sync prices from active shop to all material configurations. Only syncs items with valid prices (not -1)
 
-## Package: me.serbob.donutorder.api.util
+## Package: dev.zaryxstudios.donutorder.api.util
 
-### Class: me.serbob.donutorder.api.util.Order
+### Class: dev.zaryxstudios.donutorder.api.util.Order
 Type: Class
 Description: Represents a player order with delivery tracking and expiration management. Orders have a creation time, duration, and deletion threshold for automatic cleanup.
 

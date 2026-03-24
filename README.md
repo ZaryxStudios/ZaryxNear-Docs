@@ -62,7 +62,7 @@ When to use and when to avoid
 
 ```bash
 ./mvnw -pl autogen -am exec:java \
-  -Dexec.mainClass="me.serbob.zaryxnear.autogen.DocGeneratorCLI" \
+  -Dexec.mainClass="dev.zaryxstudios.zaryxnear.autogen.DocGeneratorCLI" \
   -Dexec.args="full"
 ```
 
@@ -70,7 +70,7 @@ When to use and when to avoid
 
 ```bash
 ./mvnw -pl autogen -am exec:java \
-  -Dexec.mainClass="me.serbob.zaryxnear.autogen.DocGeneratorCLI" \
+  -Dexec.mainClass="dev.zaryxstudios.zaryxnear.autogen.DocGeneratorCLI" \
   -Dexec.args="package com.example.api"
 ```
 
@@ -118,7 +118,37 @@ Pipeline defined in .github/workflows/deploy.yml:
 ## ZaryxNear philosophy
 
 "We do not write code just to make it work. We build systems that scale."
+## System Requirements and Env Setup
 
+- Java 17+
+- Maven 3.8+
+- Docker (optional)
+- `.env` from `.env.example`
+
+Required environment variables (see `.env.example`):
+- `GRPC_SERVER_PORT`
+- `GRPC_MAX_MESSAGE_SIZE`
+- `DOCS_BASE_PATH`
+- `DOCS_CACHE_SIZE`
+- `ANTHROPIC_API_KEY`
+- `LOG_LEVEL`
+
+## Run locally
+
+```bash
+./mvnw clean package -DskipTests
+./mvnw -pl app spring-boot:run
+```
+
+## gRPC API example
+
+- config in `application.yml`/`application.properties`
+- endpoint `localhost:${GRPC_SERVER_PORT}`
+
+## Troubleshooting
+
+- `ResourceNotFound` en docs: coloque .md en `src/main/resources/docs/...`
+- `OutOfMemory` al cargar docs grandes: use `MAX_IN_MEMORY_SIZE` en `DocsService`
 ## Contact
 
 Zaryx Studios

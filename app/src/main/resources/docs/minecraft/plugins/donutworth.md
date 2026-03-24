@@ -1,8 +1,8 @@
 # donutworth-api API Reference
 
-## Package: me.serbob.donutworth.api.currency
+## Package: dev.zaryxstudios.donutworth.api.currency
 
-### Class: me.serbob.donutworth.api.currency.CurrencyHook
+### Class: dev.zaryxstudios.donutworth.api.currency.CurrencyHook
 Type: Interface
 Description: Interface for integrating different economy/currency plugins with DonutWorth
 
@@ -13,7 +13,7 @@ Methods:
 - void withdraw(OfflinePlayer player, double amount) - Remove amount from player's balance
 - void deposit(OfflinePlayer player, double amount) - Add amount to player's balance
 
-### Class: me.serbob.donutworth.api.currency.CurrencyManager
+### Class: dev.zaryxstudios.donutworth.api.currency.CurrencyManager
 Type: Class
 Description: Singleton manager for handling currency plugin integrations. Uses lazy initialization with @Getter(lazy = true) for thread-safe singleton.
 
@@ -27,9 +27,9 @@ Methods:
 - void deposit(Player player, double amount) - Add amount to player's balance. Does nothing if no currency active
 - CurrencyHook getActiveCurrency() - Get currently active currency or null if none
 
-## Package: me.serbob.donutworth.api.event
+## Package: dev.zaryxstudios.donutworth.api.event
 
-### Class: me.serbob.donutworth.api.event.AsyncPostItemsSoldEvent
+### Class: dev.zaryxstudios.donutworth.api.event.AsyncPostItemsSoldEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Description: Asynchronous event fired after items have been sold. This event is called after the transaction is complete and cannot be modified.
@@ -42,7 +42,7 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-### Class: me.serbob.donutworth.api.event.CurrencyRegistrationCompleteEvent
+### Class: dev.zaryxstudios.donutworth.api.event.CurrencyRegistrationCompleteEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Description: Event fired when all currency hooks have been registered and an active currency has been selected. Useful for plugins that need to know when the economy system is ready.
@@ -54,7 +54,7 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-### Class: me.serbob.donutworth.api.event.PreItemsSoldEvent
+### Class: dev.zaryxstudios.donutworth.api.event.PreItemsSoldEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Description: Event fired before items are sold. The price can be modified in this event to apply custom multipliers or adjustments.
@@ -68,7 +68,7 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-### Class: me.serbob.donutworth.api.event.ShopRegistrationCompleteEvent
+### Class: dev.zaryxstudios.donutworth.api.event.ShopRegistrationCompleteEvent
 Type: Class
 Extends: org.bukkit.event.Event
 Description: Event fired when all shop hooks have been registered and an active shop has been selected. Useful for plugins that need to know when the shop pricing system is ready.
@@ -80,9 +80,9 @@ Methods:
 - **static** HandlerList getHandlerList()
 - HandlerList getHandlers()
 
-## Package: me.serbob.donutworth.api.shop
+## Package: dev.zaryxstudios.donutworth.api.shop
 
-### Class: me.serbob.donutworth.api.shop.ShopHook
+### Class: dev.zaryxstudios.donutworth.api.shop.ShopHook
 Type: Interface
 Description: Interface for integrating different shop plugins with DonutWorth. Allows DonutWorth to fetch prices from various shop systems.
 
@@ -92,7 +92,7 @@ Methods:
 - double getSellPrice(Material material) - Get sell price for a specific material. Returns -1 if not found
 - double getSellPrice(Player player, Material material) - Get sell price for a specific material and player (for player-specific prices). Returns -1 if not found
 
-### Class: me.serbob.donutworth.api.shop.ShopManager
+### Class: dev.zaryxstudios.donutworth.api.shop.ShopManager
 Type: Class
 Description: Singleton manager for handling shop plugin integrations. Uses lazy initialization with @Getter(lazy = true) for thread-safe singleton. Manages registration and price fetching from different shop plugins.
 
@@ -107,9 +107,9 @@ Methods:
 - boolean hasAnActiveShop() - Check if there is an active shop configured
 - void syncPrices() - Sync prices from active shop to all material configurations in DonutWorth. Updates internal price cache with latest shop prices
 
-## Package: me.serbob.donutworth.api.util
+## Package: dev.zaryxstudios.donutworth.api.util
 
-### Class: me.serbob.donutworth.api.util.Prices
+### Class: dev.zaryxstudios.donutworth.api.util.Prices
 Type: Class
 Description: Utility class for price calculations and management. Provides static methods for getting and setting item prices with support for multipliers.
 

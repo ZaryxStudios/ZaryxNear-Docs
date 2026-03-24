@@ -1,4 +1,4 @@
-package me.serbob.zaryxnear.autogen;
+package dev.zaryxstudios.zaryxnear.autogen;
 
 import lombok.extern.slf4j.Slf4j;
 import org.objectweb.asm.*;
