@@ -101,7 +101,7 @@ Operation op = new EditSessionBuilder(wp.getWorld()).build();
 - Loguea el usuario y los límites antes de ejecutar: `if (region.getVolume() > 5_000_000) ...`.
 - `WorldEdit.getInstance().getConfiguration().getAllowAutoSave()` para condiciones.
 
-## 12. Extensi�n ZaryxNear
+## 12. Extension ZaryxNear
 - Crea un handler que mapea `Player -> Region` para comandos personalizados.
 - Ejemplo: `/zaryxnear-filler` utiliza `BlockArrayClipboard` + `pastBuilder`.
 

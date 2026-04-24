@@ -201,8 +201,8 @@ You can also use templates in templates. Also in this case, the events, objectiv
 
 Events List🔗
 Burn: burn🔗
-Parameter	Syntax	Default Value	Explanation
-duration	duration:number		The duration the player will burn (in seconds). Can be a variable.
+Parameter    Syntax    Default Value    Explanation
+duration    duration:number        The duration the player will burn (in seconds). Can be a variable.
 Example
 
 events:
@@ -213,9 +213,9 @@ This event works in the same way as a quest canceler in the backpack.
 
 Running this event is equal to the player canceling a quest using the backpack.
 
-Parameter	Syntax	Default Value	Explanation
-canceler	CancelerID		The Quest Canceler to execute.
-bypass	Keyword (bypass)	Disabled	If the canceler conditions should be ignored. If enabled the canceler will be executed, even when its conditions are not met.
+Parameter    Syntax    Default Value    Explanation
+canceler    CancelerID        The Quest Canceler to execute.
+bypass    Keyword (bypass)    Disabled    If the canceler conditions should be ignored. If enabled the canceler will be executed, even when its conditions are not met.
 Example
 
 cancelQuest: "cancel woodQuest bypass"
@@ -403,14 +403,14 @@ This event wraps multiple events inside itself. Once triggered, it simply execut
 Events marked as persistent will be fired even after the player logs out. Beware though, all conditions are false when the player is offline (even inverted ones), so those events should not be blocked by any conditions!
 You can use the cancelOnLogout argument to stop the folder executing any remaining events if the player disconnects.
 
-Parameter	Syntax	Default Value	Explanation
-events to run	eventName1,event2		One or multiple events to run. Contains event names seperated by commas.
-delay	Keyword	without delay	The delay before the folder starts executing it's events.
-period	period:number	without delay	The time between each event of the folder.
-time unit	unit:unit	Seconds	The unit of time to use for delay and period. Either ticks, minutes or seconds.
-random	random:number	Disabled	Enables "random mode". Will randomly pick the defined amount of events .
-cancelOnLogout	Keyword	Disabled	If enabled, the folder will stop executing events if the player disconnects.
-cancelConditions	cancelConditions:cond1,cond2	Disabled	If enabled, the folder will stop executing events if the conditions are true.
+Parameter    Syntax    Default Value    Explanation
+events to run    eventName1,event2        One or multiple events to run. Contains event names seperated by commas.
+delay    Keyword    without delay    The delay before the folder starts executing it's events.
+period    period:number    without delay    The time between each event of the folder.
+time unit    unit:unit    Seconds    The unit of time to use for delay and period. Either ticks, minutes or seconds.
+random    random:number    Disabled    Enables "random mode". Will randomly pick the defined amount of events .
+cancelOnLogout    Keyword    Disabled    If enabled, the folder will stop executing events if the player disconnects.
+cancelConditions    cancelConditions:cond1,cond2    Disabled    If enabled, the folder will stop executing events if the conditions are true.
 Examples
 
 events:
@@ -562,11 +562,11 @@ eventName: "notify Peter:Heya %player%!" ➡ eventName: "notify Peter\\:Heya %pl
 otherEvent: notify You own %math.calc:5% fish! ➡ otherEvent: You own %math.calc\:5% fish!
 newLine: "notify Some multiline \n message" ➡ newLine: "notify Some multiline \\n message"
 
-Parameter	Syntax	Default Value	Explanation
-message	Any text with spaces!		The message that will be displayed. Supports variables and translations. Must be first
-category	category:info	None	Will load all settings from that Notification Category. Can be a comma-seperated list. The first existent category will be used.
-io	io:bossbar	io:chat	Any NotifyIO Overrides the "category". settings.
-any io specific settings	setting:value	None	Some notifyIO's provide specific settings. Can be used multiple times. Overrides the "category" settings.
+Parameter    Syntax    Default Value    Explanation
+message    Any text with spaces!        The message that will be displayed. Supports variables and translations. Must be first
+category    category:info    None    Will load all settings from that Notification Category. Can be a comma-seperated list. The first existent category will be used.
+io    io:bossbar    io:chat    Any NotifyIO Overrides the "category". settings.
+any io specific settings    setting:value    None    Some notifyIO's provide specific settings. Can be used multiple times. Overrides the "category" settings.
 Usage Examples🔗
 Check out the notify IO specific options if you haven't yet. You must understand these two if you want to use the Notify system to it's full extend. Advanced users may also use Notify Categories to make their lives easier.
 
@@ -615,8 +615,8 @@ persistent, static
 
 Prints a provided message to the server log. Any variables used in the message will be resolved. Note that when used in static context (by schedules) replacing player dependent variables won't work as the event is player independent.
 
-Parameter	Syntax	Default Value	Explanation
-level	level:logLevel	INFO	Optionally the log level can be specified but only before the message.
+Parameter    Syntax    Default Value    Explanation
+level    level:logLevel    INFO    Optionally the log level can be specified but only before the message.
 There are 4 levels: debug, info, warning and error
 Example
 
@@ -628,10 +628,10 @@ persistent, static
 
 This event will teleport the Npc to the given location.
 
-Parameter	Syntax	Default Value	Explanation
-Npc	Npc		The ID of the Npc
-Location	Unified Location Formatting		The location to which the Npc will be teleported
-Spawn	Keyword (spawn)	Disabled	If the NPC should be spawned if not in the world
+Parameter    Syntax    Default Value    Explanation
+Npc    Npc        The ID of the Npc
+Location    Unified Location Formatting        The location to which the Npc will be teleported
+Spawn    Keyword (spawn)    Disabled    If the NPC should be spawned if not in the world
 Example
 
 teleportToSpawn: npcteleport mayorHans 100;200;300;world
@@ -640,9 +640,9 @@ persistent, static
 
 Adds, removes or completes the specified objective(s).
 
-Parameter	Syntax	Default Value	Explanation
-action	Keyword: add,remove,complete		The action to do with the objective(s).
-objective(s)	objectiveName or obj1,obj2		The objective(s) to run the action on.
+Parameter    Syntax    Default Value    Explanation
+action    Keyword: add,remove,complete        The action to do with the objective(s).
+objective(s)    objectiveName or obj1,obj2        The objective(s) to run the action on.
 Using this in static contexts only works when removing objectives!
 
 
@@ -696,13 +696,13 @@ Removes or kill all entities (mobs) of given type at the location. Here you can 
 
 Can only effect loaded entities!
 
-Parameter	Syntax	Default Value	Explanation
-entity(s)	entity,entity		Required. List of entity's (separated by ,).
-location	Unified Location Formatting		Required. The center location of the target entity's.
-radius	Number		Required. The radius around the location. Can be a variable.
-name	name:name		Name of the entity. All _ will be replaced with spaces.
-marked	marked:mark		Mark of the entity (from the spawn event for example). Can be a variable.
-kill	kill		Whether to remove or actually kill the entity (if possible).
+Parameter    Syntax    Default Value    Explanation
+entity(s)    entity,entity        Required. List of entity's (separated by ,).
+location    Unified Location Formatting        Required. The center location of the target entity's.
+radius    Number        Required. The radius around the location. Can be a variable.
+name    name:name        Name of the entity. All _ will be replaced with spaces.
+marked    marked:mark        Mark of the entity (from the spawn event for example). Can be a variable.
+kill    kill        Whether to remove or actually kill the entity (if possible).
 Example
 
 killArenaMobs: "removeentity ZOMBIE 100;200;300;world 10 name:Monster kill"
@@ -725,9 +725,9 @@ The most common use case is to run an event for all online players from a schedu
 
 To run the events only for a selection of players, use the where: option to filter for players that meet specific conditions.
 
-Parameter	Syntax	Default Value	Explanation
-events	events:events		Required. The events to be run, separated by ,.
-where	where:conditions		A list of optional conditions (separated by ,) that are checked for every player.
+Parameter    Syntax    Default Value    Explanation
+events    events:events        Required. The events to be run, separated by ,.
+where    where:conditions        A list of optional conditions (separated by ,) that are checked for every player.
 The events supplied in events: are only executed for the players that meet all the given conditions.
 Example
 
@@ -747,8 +747,8 @@ Runs the specified event (or list of events) player independent (as if it was ru
 This is usefully for events that behave differently when run player independent.
 
 Events that behave different if run player independent
-Parameter	Syntax	Default Value	Explanation
-events	events:events		Required. The events to be run, separated by ,.
+Parameter    Syntax    Default Value    Explanation
+events    events:events        Required. The events to be run, separated by ,.
 Example
 
 events:
@@ -774,9 +774,9 @@ applyBonus: "score kill 1.2 action:multiply"
 Scoreboard Tag: scoretag🔗
 This scoreboard event adds or remove the scoreboard tag from a player. The kind of tags that are used by vanilla Minecraft and not the betonquest tags.
 
-Parameter	Syntax	Default Value	Explanation
-modifier	add or remove		Whether to add or remove the tag.
-scoreboard tag	Tag name		The name of the scoreboard tag.
+Parameter    Syntax    Default Value    Explanation
+modifier    add or remove        Whether to add or remove the tag.
+scoreboard tag    Tag name        The name of the scoreboard tag.
 Example
 
 addVanillaTag: "scoretag add vanilla_tag"
@@ -797,11 +797,11 @@ When decreasing the objective it will do nothing when the first stage is reached
 When the conditions of the stage objective are not met, the stage of the player can not be modified.
 For more take a look at the stage objective.
 
-Parameter	Syntax	Default Value	Explanation
-stage objective	Objective		The name of the stage objective
-action	set, increase or decrease		The action to perform
-stage	Stage		The name of the stage to set when set is used
-amount	Number	1	The amount to increase or decrease by
+Parameter    Syntax    Default Value    Explanation
+stage objective    Objective        The name of the stage objective
+action    set, increase or decrease        The action to perform
+stage    Stage        The name of the stage to set when set is used
+amount    Number    1    The amount to increase or decrease by
 Example
 
 events:
@@ -873,8 +873,8 @@ Teleports the player to the specified location. Ends any active conversations.
 
 Do you only want to cancel the conversation?
 
-Parameter	Syntax	Default Value	Explanation
-location	Unified Location Formatting		The location to which the player will be teleported.
+Parameter    Syntax    Default Value    Explanation
+location    Unified Location Formatting        The location to which the player will be teleported.
 Example
 
 events:
@@ -890,13 +890,13 @@ variable CustomVariable MyFirstVariable Goodbye!
 variable variable_objectiveID name %player%
 variable other_var_obj desc ""
  Move the player: velocity🔗
-Parameter	Syntax	Default Value	Explanation
-vector	vector:(x;y;z)		The values of the vector, which are decimal numbers, can be interpreted as absolute numbers like the coordinate or as relative directions. For more understanding the relative direction is similar to ^ ^ ^ in minecraft or in other words (sideways;upwards;forwards). Can be a variable.
-direction	direction:directionType	absolute	There are 3 types how the vector can get applied to the player:
+Parameter    Syntax    Default Value    Explanation
+vector    vector:(x;y;z)        The values of the vector, which are decimal numbers, can be interpreted as absolute numbers like the coordinate or as relative directions. For more understanding the relative direction is similar to ^ ^ ^ in minecraft or in other words (sideways;upwards;forwards). Can be a variable.
+direction    direction:directionType    absolute    There are 3 types how the vector can get applied to the player:
 absolute won't change the vector at all.
 relative will redirect the vector to the view of the player.
 relative_y is a mix between absolute and relative. It will still direct to the view but only horizontally, so y will be absolute.
-modification	modification:modificationType	set	Possible modifications are set and add. The modification type determines how the vector should be merged with the player's velocity. The player's velocity is the external force applied on the player.
+modification    modification:modificationType    set    Possible modifications are set and add. The modification type determines how the vector should be merged with the player's velocity. The player's velocity is the external force applied on the player.
 Visual Explanation
 Example
 
@@ -910,11 +910,11 @@ persistent, static
 
 Sets the weather in the world the player is currently in. The argument is sun for clear, sunny weather, rain for pure rain, storm for storm with rain, lightning and thunder. Durations less than 1 is equal to no duration.
 
-Parameter	Syntax	Default Value	Explanation
-type	Keyword		The type of weather to set. Either sun, rain or storm.
-duration	duration:number	Minecraft decides randomly.	The duration the weather will last (in seconds). Can be a variable.
+Parameter    Syntax    Default Value    Explanation
+type    Keyword        The type of weather to set. Either sun, rain or storm.
+duration    duration:number    Minecraft decides randomly.    The duration the weather will last (in seconds). Can be a variable.
 Is handled from minecraft afterwards.
-world	world:worldName	The player's current world.	The world to change the weather in.
+world    world:worldName    The player's current world.    The world to change the weather in.
 Example
 
 events:
@@ -926,13 +926,13 @@ events:
 Action: action🔗
 This objective completes when the player clicks on the given block type. It works great with the location condition and the item in hand condition to further limit the counted clicks.
 
-Parameter	Syntax	Default Value	Explanation
-Click Type	right, left or any		What type of click should be handled
-Block Type	Block Selector or any		The block which must be clicked, or any for even air
-Location	loc:Location	Optional. Default: none	Adds an optional location to the objective, only counting blocks clicked at the specific location.
-range	range:number	0	The range around the location where to count the clicks.
-cancel	Keyword (cancel)	Not Set	Prevents the player from interacting with the block.
-hand	hand:(hand,off_hand, any)	hand	The hand the player must use to click the block, any can the objective cause to be completed multiple times
+Parameter    Syntax    Default Value    Explanation
+Click Type    right, left or any        What type of click should be handled
+Block Type    Block Selector or any        The block which must be clicked, or any for even air
+Location    loc:Location    Optional. Default: none    Adds an optional location to the objective, only counting blocks clicked at the specific location.
+range    range:number    0    The range around the location where to count the clicks.
+cancel    Keyword (cancel)    Not Set    Prevents the player from interacting with the block.
+hand    hand:(hand,off_hand, any)    hand    The hand the player must use to click the block, any can the objective cause to be completed multiple times
 Example
 
 action right DOOR conditions:holding_key loc:100;200;300;world range:5
@@ -949,14 +949,14 @@ arrow 100.5;200.5;300.5;world 1.1 events:reward conditions:correct_player_positi
  Break or Place Blocks: block🔗
 To complete this objective the player must break or place the specified amount of blocks.
 
-Parameter	Syntax	Default Value	Explanation
-Block Type	Block Selector		The block which must be broken / placed.
-Amount	Number		The amount of blocks to break / place. Less than 0 for breaking and more than 0 for placing blocks.
-Safety Check	Keyword (noSafety)	Safety Check Enabled	The Safety Check prevents faking the objective. The progress will be reduced when the player does to opposite of what they are supposed to do. Example: Player must break 10 blocks. They place 10 of their stored blocks. Now the total amount of blocks to break is 20.
-Notifications	Keyword (notify)	Disabled	Displays messages to the player each time they progress the objective. Optionally with the notification interval after colon.
-Location	loc:location	Optional. Default: none	Adds an optional location to the objective, only counting blocks broken/placed at the specific location.
-Region definer	region:location	Optional. Default: none	Adds an optional second location to only count blocks broken/placed in a rectangle between the specified location and this location. This won't have an effect if parameter location isn't set.
-ignorecancel	Keyword (ignorecancel)	Protected blocks will not affect the objective	Allows the objective to progress, even if the event is cancelled by the Server. For example if the player is not allowed to build.
+Parameter    Syntax    Default Value    Explanation
+Block Type    Block Selector        The block which must be broken / placed.
+Amount    Number        The amount of blocks to break / place. Less than 0 for breaking and more than 0 for placing blocks.
+Safety Check    Keyword (noSafety)    Safety Check Enabled    The Safety Check prevents faking the objective. The progress will be reduced when the player does to opposite of what they are supposed to do. Example: Player must break 10 blocks. They place 10 of their stored blocks. Now the total amount of blocks to break is 20.
+Notifications    Keyword (notify)    Disabled    Displays messages to the player each time they progress the objective. Optionally with the notification interval after colon.
+Location    loc:location    Optional. Default: none    Adds an optional location to the objective, only counting blocks broken/placed at the specific location.
+Region definer    region:location    Optional. Default: none    Adds an optional second location to only count blocks broken/placed in a rectangle between the specified location and this location. This won't have an effect if parameter location isn't set.
+ignorecancel    Keyword (ignorecancel)    Protected blocks will not affect the objective    Allows the objective to progress, even if the event is cancelled by the Server. For example if the player is not allowed to build.
 Example
 
 objectives:
@@ -966,16 +966,16 @@ objectives:
 Variable Properties
 Note that these follow the same rules as the amount argument, meaning that blocks to break are a negative number!
 
-Name	Example Output	Explanation
-amount	-6 / 6	Shows the amount of blocks already broken / placed.
-left	-4 / 4	Shows the amount of blocks that still need to be broken / placed for the objective to be completed.
-total	-10 / 10	Shows the initial amount of blocks that needed to be broken / placed.
+Name    Example Output    Explanation
+amount    -6 / 6    Shows the amount of blocks already broken / placed.
+left    -4 / 4    Shows the amount of blocks that still need to be broken / placed for the objective to be completed.
+total    -10 / 10    Shows the initial amount of blocks that needed to be broken / placed.
 You can use these variables to always get positive values:
 
-Name	Example Output	Explanation
-absoluteAmount	6	Shows the absolute amount of blocks already broken / placed.
-absoluteLeft	4	Shows the absolute amount of blocks that still need to be broken / placed for the objective to be completed.
-absoluteTotal	10	Shows the initial absolute amount of blocks that needed to be broken / placed.
+Name    Example Output    Explanation
+absoluteAmount    6    Shows the absolute amount of blocks already broken / placed.
+absoluteLeft    4    Shows the absolute amount of blocks that still need to be broken / placed for the objective to be completed.
+absoluteTotal    10    Shows the initial absolute amount of blocks that needed to be broken / placed.
 Breed animals: breed🔗
 This objective is completed by breeding animals of specified type. The first argument is the animal type and the second argument is the amount (positive integer). You can add the notify argument to display a message with the remaining amount each time the animal is bred, optionally with the notification interval after a colon. While you can specify any entity, the objective will be completable only for breedable ones.
 
@@ -994,19 +994,19 @@ chestput 0;50;100;world apple:42 events:message multipleaccess:true
  Eat/drink: consume🔗
 This objective is completed by eating the specified food or drinking the specified potion.
 
-Parameter	Syntax	Default Value	Explanation
-Item	Quest Item		The item or potion that must be consumed.
-Amount	amount:number	1	The amount of items to consume.
+Parameter    Syntax    Default Value    Explanation
+Item    Quest Item        The item or potion that must be consumed.
+Amount    amount:number    1    The amount of items to consume.
 Example
 
 objectives:
   eatApple: "consume apple events:faster_endurance_regen"
   eatSteak: "consume steak amount:4 events:health_boost"
 Variable Properties
-Name	Example Output	Explanation
-amount	6	Shows the amount of items already consumed.
-left	4	Shows the amount of items that still need to be consumed for the objective to be completed.
-total	10	Shows the initial amount of items that needed to be consumed.
+Name    Example Output    Explanation
+amount    6    Shows the amount of items already consumed.
+left    4    Shows the amount of items that still need to be consumed for the objective to be completed.
+total    10    Shows the initial amount of items that needed to be consumed.
 Crafting: craft🔗
 To complete this objective the player must craft specified item. First argument is ID of the item, as in the items section. Next is amount (integer). You can use the notify keyword to display a message each time the player advances the objective, optionally with the notification interval after a colon.
 
@@ -1018,21 +1018,21 @@ craft saddle 5 events:reward
  Enchant item: enchant🔗
 This objective is completed when the player enchants the specified quest item with the specified enchantment.
 
-Parameter	Syntax	Default Value	Explanation
-item	Quest Item		The quest item that must be enchanted.
-enchants	enchantment:level		The enchants that must be added to the item. Enchantment names are different from the vanilla ones. If a level is present, the enchanted level must be equal or bigger then the specified one. Multiple enchants are supported: ARROW_DAMAGE:1,ARROW_FIRE:1
-requirementMode	requirementMode:mode	all	Use one if any enchantment from enchants should complete the objective. Use all if all are required at the same time.
-amount	amount:number	1	The amount of items to enchant.
+Parameter    Syntax    Default Value    Explanation
+item    Quest Item        The quest item that must be enchanted.
+enchants    enchantment:level        The enchants that must be added to the item. Enchantment names are different from the vanilla ones. If a level is present, the enchanted level must be equal or bigger then the specified one. Multiple enchants are supported: ARROW_DAMAGE:1,ARROW_FIRE:1
+requirementMode    requirementMode:mode    all    Use one if any enchantment from enchants should complete the objective. Use all if all are required at the same time.
+amount    amount:number    1    The amount of items to enchant.
 Example
 
 lordSword: "enchant lordsSword damage_all,knockback events:rewardLord"
 kingSword: "enchant kingsSword damage_all:2,knockback:1 events:rewardKing"
 massProduction: "enchant ironSword sharpness amount:10 events:blacksmithLevel2Reward"
 Variable Properties
-Name	Example Output	Explanation
-amount	6	Shows the amount of items already enchanted.
-left	4	Shows the amount of items that still need to be enchanted for the objective to be completed.
-total	10	Shows the initial amount of items that needed to be enchanted.
+Name    Example Output    Explanation
+amount    6    Shows the amount of items already enchanted.
+left    4    Shows the amount of items that still need to be enchanted for the objective to be completed.
+total    10    Shows the initial amount of items that needed to be enchanted.
 Experience: experience🔗
 This objective can be completed by reaching the specified amount of experience levels. You can also define decimal numbers, for example experience 1.5 will complete when the player reaches 1.5 experience levels or more. If you want to check for an absolute amount of experience points you can convert it to decimal levels. The objective is checked every time the player gets experience naturally, such as killing mobs or mining blocks. Additionally, it is checked if the player reaches a new level in any way (vanilla level up, commands or other plugins). The objective will also imminently complete if the player already has the experience level or more. And it will also be completed if the player joins the game with the specified amount of experience levels or more. You can use the notify keyword to display a message each time the player advances the objective, optionally with the notification interval after a colon.
 
@@ -1044,20 +1044,20 @@ experience 25 level events:reward
  Wait: delay🔗
 This objective completes itself after certain amount of time. The player must be online and meet all conditions. If the player is not online the objective is completed on the player's next login.
 
-Parameter	Syntax	Default Value	Explanation
-time	Any Number		The time after which the objective is completed.
-unit	Keyword	minutes	The unit of time. Either minutes, seconds or ticks.
-precision	interval:number	interval:200	The interval in which the objective checks if the time is up. Measured in ticks. Low values cost more performance but make the objective preciser.
+Parameter    Syntax    Default Value    Explanation
+time    Any Number        The time after which the objective is completed.
+unit    Keyword    minutes    The unit of time. Either minutes, seconds or ticks.
+precision    interval:number    interval:200    The interval in which the objective checks if the time is up. Measured in ticks. Low values cost more performance but make the objective preciser.
 Example
 
 objectives:
   waitDay: "delay 1440 events:resetDaily" 
   wait50sec: "delay 1000 ticks interval:5 events:failQuest" 
 Variable Properties
-Name	Example Output	Explanation
-left	23 days 5 hours 45 minutes 17 seconds	Shows the time left until the objective is completed.
-date	17.04.2022 16:14	Shows the date the objective is completed at using the config's date_format setting.
-rawSeconds	5482	Shows the amount of seconds until objective completion.
+Name    Example Output    Explanation
+left    23 days 5 hours 45 minutes 17 seconds    Shows the time left until the objective is completed.
+date    17.04.2022 16:14    Shows the date the objective is completed at using the config's date_format setting.
+rawSeconds    5482    Shows the amount of seconds until objective completion.
 Death: die🔗
 The death objective is completed when a player dies while fulfilling all conditions. If you set the respawn location the player will spawn at that location, after pressing respawn, and the objective will be completed then, not immediately on death.
 
@@ -1070,45 +1070,45 @@ die cancel respawn:100;200;300;world;90;0 events:respawned
  Fishing: fish🔗
 Requires the player to catch something with the fishing rod. It doesn't have to be a fish, it can also be any other item.
 
-Parameter	Syntax	Default Value	Explanation
-Item	Quest Item		The item that must be caught.
-amount	Any Number		The amount that must be caught.
-notifications	notify:number	notify:0	Add notify to display a notification when a fish is caught. Optionally with the notification interval after a colon.
-hookLocation	hookLocation:Location	Everywhere	The location at which the item must be caught. Range must also be defined.
-range	range:number	Everywhere	The range around the hookLocation.
+Parameter    Syntax    Default Value    Explanation
+Item    Quest Item        The item that must be caught.
+amount    Any Number        The amount that must be caught.
+notifications    notify:number    notify:0    Add notify to display a notification when a fish is caught. Optionally with the notification interval after a colon.
+hookLocation    hookLocation:Location    Everywhere    The location at which the item must be caught. Range must also be defined.
+range    range:number    Everywhere    The range around the hookLocation.
 Example
 
 objectives:
   fisherman: "fish SALMON 5 notify events:tag_fish_caught" 
   fishAtPond: "fish COD 5 hookLocation:123;456;789;fishWorld range:10 events:giveSpecialFish" 
 Variable Properties
-Name	Example Output	Explanation
-left	4	The amount of fish still left to be caught.
-amount	6	The amount of already caught fish.
-total	10	The initially required amount of fish needed to be caught.
+Name    Example Output    Explanation
+left    4    The amount of fish still left to be caught.
+amount    6    The amount of already caught fish.
+total    10    The initially required amount of fish needed to be caught.
 Interact with entity: interact🔗
 The player must click on entities to complete this objective.
 
-Parameter	Syntax	Default Value	Explanation
-Click Type	right, left or any		What type of click should be handled
-Entity Type	EntityType type		The entity which must be clicked
-amount	number		The amount of different entities which must be interacted with.
-name	name:text	Disabled	Only count named mobs.
-realname	realname:text	Disabled	To check for the real name (e.g. if you renamed players to include their rank).
-marked	marked:text	Disabled	If the clicked entity needs to be marked by the spawn event (see its description for marking explanation)
-hand	hand:(hand,off_hand, any)	hand	The hand the player must use to click the block, any can the objective cause to be completed multiple times
-Notifications	Keyword (notify)	Disabled	Displays messages to the player each time they progress the objective. Optionally with the notification interval after colon.
-Cancel	Keyword (cancel)	Disabled	if the click shouldn't do what it usually does (i.e. left click won't hurt the entity).
-Location	loc:Location	Everywhere	The location at which the entity must be interacted.
-range	range:number	1	The range around the loc. Requires defined loc.
+Parameter    Syntax    Default Value    Explanation
+Click Type    right, left or any        What type of click should be handled
+Entity Type    EntityType type        The entity which must be clicked
+amount    number        The amount of different entities which must be interacted with.
+name    name:text    Disabled    Only count named mobs.
+realname    realname:text    Disabled    To check for the real name (e.g. if you renamed players to include their rank).
+marked    marked:text    Disabled    If the clicked entity needs to be marked by the spawn event (see its description for marking explanation)
+hand    hand:(hand,off_hand, any)    hand    The hand the player must use to click the block, any can the objective cause to be completed multiple times
+Notifications    Keyword (notify)    Disabled    Displays messages to the player each time they progress the objective. Optionally with the notification interval after colon.
+Cancel    Keyword (cancel)    Disabled    if the click shouldn't do what it usually does (i.e. left click won't hurt the entity).
+Location    loc:Location    Everywhere    The location at which the entity must be interacted.
+range    range:number    1    The range around the loc. Requires defined loc.
 Example
 
 interact right creeper 1 marked:sick conditions:syringeInHand cancel
 Variable Properties
-Name	Example Output	Explanation
-amount	7	The amount of already interacted entities.
-left	13	The amount of entities still needed to be interacted with.
-total	20	The initially required amount of entities to interact.
+Name    Example Output    Explanation
+amount    7    The amount of already interacted entities.
+left    13    The amount of entities still needed to be interacted with.
+total    20    The initially required amount of entities to interact.
 Resource pack state: resourcepack🔗
 To complete this objective the player must have the specified resource pack state. The first argument is the state of the resource pack. It can be successfully_loaded, declined, failed_download and accepted.
 
@@ -1127,19 +1127,19 @@ kill 5 required:team_B
 Location: location🔗
 The specified location where the player needs to be. It is not required to specify entry or exit then the objective also completes if the player just moves inside the location's range.
 
-Parameter	Syntax	Default Value	Explanation
-location	ULF		The location to go to
-range	number		The range around the location where the player must be.
-entry	entry	Disabled	The player must enter (go from outside to inside) the location to complete the objective.
-exit	exit	Disabled	The player must exit (go from inside to outside) the location to complete the objective.
+Parameter    Syntax    Default Value    Explanation
+location    ULF        The location to go to
+range    number        The range around the location where the player must be.
+entry    entry    Disabled    The player must enter (go from outside to inside) the location to complete the objective.
+exit    exit    Disabled    The player must exit (go from inside to outside) the location to complete the objective.
 Example
 
 
 location 100;200;300;world 5 conditions:started events:notifyWelcome,start
 location 100;200;300;world 5 exit conditions:started events:notifyBye
 Variable Properties
-Name	Example Output	Explanation
-location	X: 100, Y: 200, Z:300	The target location of this objective
+Name    Example Output    Explanation
+location    X: 100, Y: 200, Z:300    The target location of this objective
 Login: login🔗
 To complete this objective the player simply needs to login to the server. If you use global this objective will be also completed directly when a new player joins for the first time. If you use persistent it will be permanent. Don't forget that if you use global and persistent you can still remove the objective explicitly.
 
@@ -1156,10 +1156,10 @@ logout events:delete_objective
 NPC Interact: npcinteract🔗
 The player has to interact with a Npc.
 
-Parameter	Syntax	Default Value	Explanation
-Npc	Npc		The ID of the Npc.
-Cancel	cancel	False	If the interaction with the Npc should be cancelled, so a conversation won't start.
-Interaction	interaction:Keyword	right	The interaction type. Either left, right or any.
+Parameter    Syntax    Default Value    Explanation
+Npc    Npc        The ID of the Npc.
+Cancel    cancel    False    If the interaction with the Npc should be cancelled, so a conversation won't start.
+Interaction    interaction:Keyword    right    The interaction type. Either left, right or any.
 Example
 
 stealItem: npcinteract mayor cancel conditions:sneak events:steal
@@ -1167,10 +1167,10 @@ punchThief: npcinteract thief interaction:left events:poke
 NPC Range: npcrange🔗
 The player has to enter/leave a circle with the given radius around the NPC to complete this objective. It is also possible to define multiple NPCs separated with ,. The objective will be completed as soon as you meet the requirement of just one npc.
 
-Parameter	Syntax	Default Value	Explanation
-Npcs	Npc List		The IDs of the Npcs
-Action	Keyword		The required action. Either enter, leave, inside or outside.
-Range	Number		The maximum distance to a Npc
+Parameter    Syntax    Default Value    Explanation
+Npcs    Npc List        The IDs of the Npcs
+Action    Keyword        The required action. Either enter, leave, inside or outside.
+Range    Number        The maximum distance to a Npc
 Info
 
 The types enter, leave force the player to actually enter the radius after you were outside of it and vice versa. This means that enter is not completed when the player gets the objective and is already in the range, while inside is instantly completed.
@@ -1218,12 +1218,12 @@ pickup emerald,diamond amount:6 events:reward notify
  Entity Kill: mobkill🔗
 The player must kill the specified amount of entities (living creatures). All entities work, make sure to use their correct types.
 
-Parameter	Syntax	Default Value	Explanation
-type	ENTITY_TYPE,ENTITY_TYPE		A list of entities, e.g. ZOMBIE,SKELETON.
-amount	Positive Number		Amount of mobs to kill in total.
-name	name:text	Disabled	Only count named mobs.
-marked	marked:keyword	Disabled	Only count marked mobs. See the spawn event for more information. Supports variables.
-notify	notify:interval	Disabled	Display a message to the player each time they kill a mob. Optionally with the notification interval after colon.
+Parameter    Syntax    Default Value    Explanation
+type    ENTITY_TYPE,ENTITY_TYPE        A list of entities, e.g. ZOMBIE,SKELETON.
+amount    Positive Number        Amount of mobs to kill in total.
+name    name:text    Disabled    Only count named mobs.
+marked    marked:keyword    Disabled    Only count marked mobs. See the spawn event for more information. Supports variables.
+notify    notify:interval    Disabled    Display a message to the player each time they kill a mob. Optionally with the notification interval after colon.
 Example
 
 objectives:
@@ -1231,10 +1231,10 @@ objectives:
   specialMob: "mobkill PIG 1 marked:special" 
   bossZombie: "mobkill ZOMBIE 1 name:Uber_Zombie" 
 Variable Properties
-Name	Example Output	Explanation
-amount	2	Shows the amount of mobs already killed.
-left	8	Shows the amount of mobs that still need to be killed.
-total	10	Shows the amount of mobs initially required to kill.
+Name    Example Output    Explanation
+amount    2    Shows the amount of mobs already killed.
+left    8    Shows the amount of mobs that still need to be killed.
+total    10    Shows the amount of mobs initially required to kill.
 Potion brewing: brew🔗
 To complete this objective the player needs to brew specified amount of specified potions. The first argument is a potion ID from the items section. Second argument is amount of potions. You can optionally add notify argument to make the objective display progress to players, optionally with the notification interval after a colon.
 
@@ -1271,20 +1271,20 @@ The Stage objective is a special objective that can be used to track the progres
 When the conditions of the stage objective are not met, the stage of the player can not be modified.
 You can modify the stages with the stage event and check it's state with the stage condition.
 
-Parameter	Syntax	Default Value	Explanation
-stages	List of stage names		The stages that must be completed.
-preventCompletion	Keyword	Completion Enabled	Prevents the objective from being completed by increasing the stage.
+Parameter    Syntax    Default Value    Explanation
+stages    List of stage names        The stages that must be completed.
+preventCompletion    Keyword    Completion Enabled    Prevents the objective from being completed by increasing the stage.
 Example
 
 objectives:
   questProgress: "stage part1,part2,part3"
   bakeCookies: "stage collectIngredients,cookCookies,deliverCookies preventCompletion"
 Variable Properties
-Name	Example Output	Explanation
-index	2	The index of the players current stage beginning at 0.
-current	cookCookies	The current stage name of the player or empty if the objective is not active.
-next	deliverCookies	The next stage name of the player or empty if the objective is not active.
-previous	collectIngredients	The previous stage name of the player or empty if the objective is not active.
+Name    Example Output    Explanation
+index    2    The index of the players current stage beginning at 0.
+current    cookCookies    The current stage name of the player or empty if the objective is not active.
+next    deliverCookies    The next stage name of the player or empty if the objective is not active.
+previous    collectIngredients    The previous stage name of the player or empty if the objective is not active.
 Step on pressure plate: step🔗
 To complete this objective the player has to step on a pressure plate at a given location. The type of plate does not matter. The first and only required argument is a location. If the pressure plate is not present at that location, the objective will not be completable and will log errors in the console.
 
@@ -1304,11 +1304,11 @@ tame WOLF 2 events:wolfs_tamed
 Track time: timer🔗
 Tracks time in seconds from the start of the objective to the completion of the objective. If you simply want to have something like wait for 10 minutes, you can use the amount argument. If you don't define the amount, the objective will run indefinitely until you complete it with the objective event.
 
-Parameter	Syntax	Default Value	Explanation
-name	name:text	Disabled	A display name for the objective that can be accessed as property.
-interval	interval:number	interval:20	How often the objective checks the conditions and adds time, in seconds.
-amount	amount:number	Disabled	The amount of time in seconds to track before the objective is completed.
-done	done:events	Disabled	Events that will be executed when the objective is done, but before it is removed.
+Parameter    Syntax    Default Value    Explanation
+name    name:text    Disabled    A display name for the objective that can be accessed as property.
+interval    interval:number    interval:20    How often the objective checks the conditions and adds time, in seconds.
+amount    amount:number    Disabled    The amount of time in seconds to track before the objective is completed.
+done    done:events    Disabled    Events that will be executed when the objective is done, but before it is removed.
 If you want to access the time tracked by this objective in seconds, you can use the amount, left and total properties. They are only available while the objective is active, this is still the case in the done events, but not in the normal events as they are executed after the objective is already removed.
 
 Example
@@ -1547,8 +1547,8 @@ hunger 15
 In Conversation: inconversation🔗
 This condition checks, if the player is in a conversation.
 
-Parameter	Syntax	Default Value	Explanation
-conversation	conversation:name		Optional name of the conversation. If specified, it will only check for the conversation with this name.
+Parameter    Syntax    Default Value    Explanation
+conversation    conversation:name        Optional name of the conversation. If specified, it will only check for the conversation with this name.
 Example
 
 conditions:
@@ -1604,9 +1604,9 @@ static
 
 This condition checks the moon phase in the given world or the player's world.
 
-Parameter	Syntax	Default Value	Explanation
-MoonPhase	Keyword		The moon phase to check for. Can be a list and variables.
-world	world:name	player location	The world to check for the moon phase. Can be a variable.
+Parameter    Syntax    Default Value    Explanation
+MoonPhase    Keyword        The moon phase to check for. Can be a list and variables.
+world    world:name    player location    The world to check for the moon phase. Can be a variable.
 Example
 
 fullMoon: "moonphase FULL_MOON"
@@ -1615,9 +1615,9 @@ playersFirstJoinMoon: "moonphase %ph.player_first_join_moon%"
 NPC distance: npcdistance🔗
 This condition will check if a Npc is close to the player.
 
-Parameter	Syntax	Default Value	Explanation
-Npc	Npc		The ID of the Npc
-Distance	Variable		The maximum distance
+Parameter    Syntax    Default Value    Explanation
+Npc    Npc        The ID of the Npc
+Distance    Variable        The maximum distance
 Example
 
 canHearBandit: npcdistance bandit 22
@@ -1626,10 +1626,10 @@ persistent, static
 
 This condition will check if a Npc is close to a location.
 
-Parameter	Syntax	Default Value	Explanation
-Npc	Npc		The ID of the Npc
-Location	Location		The location
-Distance	Number		The maximum distance
+Parameter    Syntax    Default Value    Explanation
+Npc    Npc        The ID of the Npc
+Location    Location        The location
+Distance    Number        The maximum distance
 Example
 
 nearTarget: npclocation merchant 4.0;14.0;-20.0;world 22
@@ -1720,8 +1720,8 @@ static, persistent
 
 There must a specific (real) time for this condition to return true.
 
-Parameter	Syntax	Default Value	Explanation
-Timespan	startTime-endTime		Two points of time separated by dash in the 24-hour format (0 - 24). The minutes are optional (hh or hh:mm).
+Parameter    Syntax    Default Value    Explanation
+Timespan    startTime-endTime        Two points of time separated by dash in the 24-hour format (0 - 24). The minutes are optional (hh or hh:mm).
 Example
 
 allDayReal: "realtime 6-19"
@@ -1732,17 +1732,17 @@ persistent
 
 With this condition you can check if the score in a specified objective on a scoreboard is greater or equal to specified amount.
 
-Parameter	Syntax	Default Value	Explanation
-scoreboard objective	Objective name		The name of the scoreboard objective
-count	Number		The minimum whole number of the objective
+Parameter    Syntax    Default Value    Explanation
+scoreboard objective    Objective name        The name of the scoreboard objective
+count    Number        The minimum whole number of the objective
 Example
 
 hasAtLeastTenKills: "score kills 10"
 Scoreboard Tag: scoretag🔗
 This scoreboard condition checks if the player has a specified scoreboard tag. The kind of tags that are used by vanilla Minecraft and not the betonquest tags.
 
-Parameter	Syntax	Default Value	Explanation
-scoreboard tag	Tag name		The name of the scoreboard tag.
+Parameter    Syntax    Default Value    Explanation
+scoreboard tag    Tag name        The name of the scoreboard tag.
 Example
 
 hasVanillaTag: "scoretag vanilla_tag"
@@ -1757,10 +1757,10 @@ Check Stage: stage🔗
 This condition compares the players current stage with the given stage by its index numbers. For more take a look at the stage objective.
 The valid operations are: <, <=, =, !=, >=, >.
 
-Parameter	Syntax	Default Value	Explanation
-stage objective	Objective		The name of the stage objective
-comparator	Comparator		The comparator to use for the comparison
-stage	Stage		The name of the stage to compare
+Parameter    Syntax    Default Value    Explanation
+stage objective    Objective        The name of the stage objective
+comparator    Comparator        The comparator to use for the comparison
+stage    Stage        The name of the stage to compare
 Example
 
 conditions:
@@ -1787,9 +1787,9 @@ static
 
 There must be specific (Minecraft) time on the world for this condition to return true.
 
-Parameter	Syntax	Default Value	Explanation
-Timespan	startTime-endTime		Two points of time separated by dash in the 24-hour format (0 - 24). The minutes are optional (hh or hh:mm).
-world	world:name	player location	The world to check for the time. Can be a variable.
+Parameter    Syntax    Default Value    Explanation
+Timespan    startTime-endTime        Two points of time separated by dash in the 24-hour format (0 - 24). The minutes are optional (hh or hh:mm).
+world    world:name    player location    The world to check for the time. Can be a variable.
 Example
 
 allDay: "time 6-19"
@@ -1801,10 +1801,10 @@ static
 
 This condition checks if a variable value matches given regular expression
 
-Parameter	Syntax	Default Value	Explanation
-Variable	Any variable		The variable (surrounded by % characters).
-Regex	A regex pattern		The regex that the variables value must match. The regex can also be stored in a variable.
-forceSync	Keyword	False	Forces the variables to be resolved on the main thread. This may be required by some third party variables.
+Parameter    Syntax    Default Value    Explanation
+Variable    Any variable        The variable (surrounded by % characters).
+Regex    A regex pattern        The regex that the variables value must match. The regex can also be stored in a variable.
+forceSync    Keyword    False    Forces the variables to be resolved on the main thread. This may be required by some third party variables.
 Example
 
 anyNumber: "variable %objective.var.price% -?\\d+" 
@@ -1816,9 +1816,9 @@ static
 
 There must be a specific weather for this condition to return true. There are three possible options: sun, rain and storm. Note that /toggledownfall does not change the weather, it just does what the name suggests: toggles downfall. The rain toggled off will still be considered as rain! Use /weather clear instead.
 
-Parameter	Syntax	Default Value	Explanation
-weather	Keyword		The weather to check for.
-world	world:name	player location	The world to check for the weather.
+Parameter    Syntax    Default Value    Explanation
+weather    Keyword        The weather to check for.
+world    world:name    player location    The world to check for the weather.
 Example
 
 isSunny: "weather sun"
@@ -2076,13 +2076,13 @@ Runs every day at 10pm, will ring a bell and wish everyone a good night.
 
 The following special expressions were added for extended functionality or simpler usage:
 
-Expression	Description	Equivalent to
-@reboot	Run at server startup, before catching up any missed schedules	-
-@hourly	Run once an hour at the beginning of the hour	0 * * * *
-@daily / @midnight	Run once a day at 00:00	0 0 * * *
-@weekly	Run once a week at 00:00 on Sunday morning	0 0 * * 0
-@monthly	Run once a month at 00:00 of the first day of the month	0 0 1 * *
-@yearly / @annually	Run once a year at 00:00 of 1 January	0 0 1 1 *
+Expression    Description    Equivalent to
+@reboot    Run at server startup, before catching up any missed schedules    -
+@hourly    Run once an hour at the beginning of the hour    0 * * * *
+@daily / @midnight    Run once a day at 00:00    0 0 * * *
+@weekly    Run once a week at 00:00 on Sunday morning    0 0 * * 0
+@monthly    Run once a month at 00:00 of the first day of the month    0 0 1 * *
+@yearly / @annually    Run once a year at 00:00 of 1 January    0 0 1 1 *
 Catchup Strategies🔗
 Obviously, scheduled events can't be run while the server is shut down.
 If you want to be sure that a schedule will nevertheless be run, you can define a catchup strategy.
@@ -2622,19 +2622,19 @@ General Menu Settings🔗
 These are general settings for customizing a menu.
 
 Required Settings🔗
-Setting Name	
+Setting Name    
 Example
 Description
-title	title: "&6&lQuests"	Will be displayed in the top left corner of your menu. You can use color codes to color the title. Variables and defining languages are supported.
-height	height: 3	How many lines of slots your menu will have. Minimum 1, Maximum 6.
+title    title: "&6&lQuests"    Will be displayed in the top left corner of your menu. You can use color codes to color the title. Variables and defining languages are supported.
+height    height: 3    How many lines of slots your menu will have. Minimum 1, Maximum 6.
 Optional Settings🔗
 Setting Name
-Example	Description
-open_conditions	open_conditions: "unlockedMenu,!sneaking"	One or multiple conditions (separated by a ,) which all have to be true to open the menu with a bound item or a bound command.
-open_events	open_events: "menuOpenSound"	One or multiple events (separated by a ,) which will be fired when the menu is opened.
-close_events	close_events: "menuCloseSound"	One or multiple events (separated by a ,) which will be fired when the menu is closed.
-bind	bind: "openMenuItem"	Clicking with this quest item in hand will open the menu. You can create this item in the items section of your package.
-command	command: "/quests"	This command can be executed to open the menu.
+Example    Description
+open_conditions    open_conditions: "unlockedMenu,!sneaking"    One or multiple conditions (separated by a ,) which all have to be true to open the menu with a bound item or a bound command.
+open_events    open_events: "menuOpenSound"    One or multiple events (separated by a ,) which will be fired when the menu is opened.
+close_events    close_events: "menuCloseSound"    One or multiple events (separated by a ,) which will be fired when the menu is closed.
+bind    bind: "openMenuItem"    Clicking with this quest item in hand will open the menu. You can create this item in the items section of your package.
+command    command: "/quests"    This command can be executed to open the menu.
 The menu_items section🔗
 The items section contains all items which should be displayed in the menu, defined as individual sections of the config.
 
@@ -2655,10 +2655,10 @@ Optional Item Settings🔗
 The three basic optional settings.
 
 Name
-Example	Description
-amount	amount: 30	The size of the stack that will be displayed in the menu. Variables are supported.
-conditions	conditions: "questDone"	One or multiple conditions (separated by a ,) which all have to be true to display the item.
-close	close: true	If set to true the menu will be closed after clicking the item. If this is not set the default_close value from the plugins config will be used.
+Example    Description
+amount    amount: 30    The size of the stack that will be displayed in the menu. Variables are supported.
+conditions    conditions: "questDone"    One or multiple conditions (separated by a ,) which all have to be true to display the item.
+close    close: true    If set to true the menu will be closed after clicking the item. If this is not set the default_close value from the plugins config will be used.
 The optional text setting🔗
 By default, the name and description of the quest item is displayed when hovering over the item. You can overwrite this by using the text setting. If you only define one line, only the name will be overwritten. Both color codes and variables are supported and carried into the next line, if not overridden. The text can be provided as a single string with newlines, a multi-line string, or a list of strings, see examples.
 
