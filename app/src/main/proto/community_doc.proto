@@ -2,15 +2,13 @@ syntax = "proto3";
 
 package zaryxnear.docs.community;
 
-import "google/protobuf/empty.proto";
-
 option java_multiple_files = true;
 option java_package = "dev.zaryxstudios.zaryxnear.ai.context.docs.community.config";
 option java_outer_classname = "DocProto";
 
 service Doc {
   rpc GetDocInformation(DocRequestProto) returns (DocResponseProto) {}
-  rpc GetCategoryTree(google.protobuf.Empty) returns (CategoryTreeResponse) {}
+  rpc GetCategoryTree(EmptyRequest) returns (CategoryTreeResponse) {}
 }
 
 message DocResponseProto {
@@ -27,6 +25,8 @@ message DocRequestProto {
 message CategoryTreeResponse {
   map<string, DocList> category_tree = 1;
 }
+
+message EmptyRequest {}
 
 message DocList {
   repeated string doc_id = 1;

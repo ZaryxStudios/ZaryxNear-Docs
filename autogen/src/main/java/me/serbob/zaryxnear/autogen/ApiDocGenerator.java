@@ -1,7 +1,8 @@
 package dev.zaryxstudios.zaryxnear.autogen;
 
-import lombok.extern.slf4j.Slf4j;
 import org.objectweb.asm.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.InputStream;
@@ -13,8 +14,8 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 
-@Slf4j
 public class ApiDocGenerator {
+    private static final Logger log = LoggerFactory.getLogger(ApiDocGenerator.class);
 
     public void generateDocs(String jarPath, String outputPath) throws Exception {
         generateDocs(jarPath, outputPath, ScanMode.FULL_JAR, null);

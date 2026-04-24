@@ -3,13 +3,15 @@ package dev.zaryxstudios.zaryxnear.grpc;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import dev.zaryxstudios.zaryxnear.autogen.apiDocGenerator;
+import dev.zaryxstudios.zaryxnear.autogen.ApiDocGenerator;
 import dev.zaryxstudios.zaryxnear.autogen.ScanMode;
 import dev.zaryxstudios.zaryxnear.proto.*;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Comparator;
+import java.util.stream.Stream;
 
 /*
  * TODO
@@ -80,7 +82,8 @@ public class GrpcAutogenService extends JarDocGeneratorGrpc.JarDocGeneratorImplB
     }
 
     private String readGeneratedMarkdown(Path outputDir) throws Exception {
-        return Files.list(outputDir)
+        try (Stream<Path> files = Files.list(outputDir)) {
+            return files
                 .filter(p -> p.toString().endsWith(".md"))
                 .findFirst()
                 .map(p -> {
@@ -91,6 +94,7 @@ public class GrpcAutogenService extends JarDocGeneratorGrpc.JarDocGeneratorImplB
                     }
                 })
                 .orElse("# No documentation generated\n");
+        }
     }
 
     private int countClassesInMarkdown(String markdown) {
@@ -105,13 +109,14 @@ public class GrpcAutogenService extends JarDocGeneratorGrpc.JarDocGeneratorImplB
                 Files.deleteIfExists(tempJar);
             }
             if (tempOutput != null) {
-                Files.walk(tempOutput)
-                        .sorted((a, b) -> -a.compareTo(b))
+                try (Stream<Path> paths = Files.walk(tempOutput)) {
+                    paths.sorted(Comparator.reverseOrder())
                         .forEach(p -> {
                             try {
                                 Files.deleteIfExists(p);
                             } catch (Exception ignored) {}
                         });
+                }
             }
         } catch (Exception e) {
             log.warn("Cleanup failed", e);

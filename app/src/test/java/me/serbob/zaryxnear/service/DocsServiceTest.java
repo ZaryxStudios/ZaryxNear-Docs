@@ -17,8 +17,8 @@ class DocsServiceTest {
     void shouldLoadAllDocs() {
         DocResponse response = docsService.getDoc("minecraft/zaryxnear", "test-doc");
         assertNotNull(response, "Test document should be loaded from classpath tests folder");
-        assertTrue(response.getContent().contains("This is a test document"));
-        assertTrue(response.getTokens() > 0);
+        assertTrue(response.content().contains("This is a test document"));
+        assertTrue(response.tokens() > 0);
     }
 
     @Test
@@ -33,6 +33,6 @@ class DocsServiceTest {
         DocResponse response2 = docsService.getDoc("minecraft\\zaryxnear", "test-doc");
 
         assertNotNull(response1);
-        assertEquals(response1.getContent(), response2.getContent());
+        assertEquals(response1.content(), response2.content());
     }
 }

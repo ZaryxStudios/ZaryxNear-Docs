@@ -1,6 +1,6 @@
 package dev.zaryxstudios.zaryxnear.config;
 
-import dev.zaryxstudios.zaryxnear.autogen.apiDocGenerator;
+import dev.zaryxstudios.zaryxnear.autogen.ApiDocGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
